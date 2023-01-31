@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithm
 {
@@ -28,6 +29,52 @@ namespace Algorithm
                 }
             }
             return returnValue;
+        }
+
+        public int MaxSubArray(int[] nums)
+        {
+            int current = 0;
+            int max_value = -999999;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                current += nums[i];
+                if (current > max_value)
+                    max_value = current;
+                if (current < 0)
+                    current = 0;
+            }
+            return max_value;
+        }
+
+        public int[] MoveZeroes(int[] nums)
+        {
+            // int swap_index = 0;
+            // for (int i = 0; i < nums.Length; i++)
+            // {
+            //     if (nums[i] == 0 && i < nums.Length - swap_index)
+            //     {
+            //         nums[i] = nums[nums.Length - swap_index - 1];
+            //         nums[nums.Length - swap_index - 1] = 0;
+            //         swap_index++;
+            //     }
+            // }
+            int added_values = 0;
+            //zip all non 0 values
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != 0)
+                {
+                    nums[added_values] = nums[i];
+                    added_values++;
+                }
+            }
+            //add 0 at back
+            for (int i = added_values; i < nums.Length; i++)
+            {
+                nums[i] = 0;
+            }
+
+            return nums;
         }
     }
 }
