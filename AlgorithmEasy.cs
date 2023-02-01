@@ -79,20 +79,40 @@ namespace Algorithm
 
         public bool ContainsDuplicate(int[] nums)
         {
-            Dictionary <int, bool> table = new Dictionary<int,bool>();
+            Dictionary<int, bool> table = new Dictionary<int, bool>();
             for (int i = 0; i < nums.Length; i++)
             {
-                if(table.ContainsKey(nums[i]))
+                if (table.ContainsKey(nums[i]))
                 {
                     return true;
                 }
                 else
                 {
-                    table.Add(nums[i],true);
+                    table.Add(nums[i], true);
                 }
-
             }
             return false;
+        }
+
+        public int[] Rotate(int[] nums, int k)
+        {
+            int extra_move = k % nums.Length;
+            k = extra_move;
+            List<int> frontValue = new List<int>();
+            for (int i = nums.Length - k; i < nums.Length; i++)
+            {
+                frontValue.Add(nums[i]);
+            }
+            for (int i = nums.Length - k - 1; i >= 0; i--)
+            {
+                int value = i + k;
+                nums[i + k] = nums[i];
+            }
+            for (int i = 0; i < frontValue.Count; i++)
+            {
+                nums[i] = frontValue[i];
+            }
+            return nums;
         }
     }
 }

@@ -18,8 +18,11 @@ namespace Algorithm
             // nums = new int[] { 0, 1, 0, 3, 12 };
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MoveZeroes(nums)) + "]");
             //contain duplicate
-            nums = new int[] { 1,2,3,1 };
+            nums = new int[] { 1, 2, 3, 1 };
             Console.WriteLine("[" + string.Join(",", algorithmEasy.ContainsDuplicate(nums)) + "]");
+            //rotate
+            nums = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            Console.WriteLine("[" + string.Join(",", algorithmEasy.Rotate(nums, 3)) + "]");
         }
     }
 }
