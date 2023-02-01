@@ -76,5 +76,23 @@ namespace Algorithm
 
             return nums;
         }
+
+        public bool ContainsDuplicate(int[] nums)
+        {
+            Dictionary <int, bool> table = new Dictionary<int,bool>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if(table.ContainsKey(nums[i]))
+                {
+                    return true;
+                }
+                else
+                {
+                    table.Add(nums[i],true);
+                }
+
+            }
+            return false;
+        }
     }
 }
