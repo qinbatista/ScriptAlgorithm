@@ -114,5 +114,87 @@ namespace Algorithm
             }
             return nums;
         }
+
+        public void ReverseString(char[] s)
+        {
+            char temp = 'a';
+            for (int i = 0; i < s.Length / 2; i++)
+            {
+                temp = s[i];
+                s[i] = s[s.Length - i - 1];
+                s[s.Length - i - 1] = temp;
+            }
+            Console.WriteLine("[" + string.Join(",", s) + "]");
+        }
+
+        public IList<string> FizzBuzz(int n)
+        {
+            string _str = "";
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    _str = _str + "," + "FizzBuzz";
+                }
+                else if (i % 3 == 0)
+                {
+                    _str = _str + "," + "Fizz";
+                }
+                else if (i % 5 == 0)
+                {
+                    _str = _str + "," + "Buzz";
+                }
+                else
+                {
+                    if (_str == "")
+                        _str = _str + i;
+                    else
+                        _str = _str + "," + i;
+                }
+            }
+            return _str.Split(",").ToList();
+        }
+
+        public int SingleNumber(int[] nums)
+        {
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!dic.ContainsKey(nums[i]))
+                {
+                    dic[nums[i]] = 1;
+                }
+                else
+                {
+                    dic[nums[i]] = dic[nums[i]] + 1;
+                }
+            }
+            foreach (KeyValuePair<int, int> item in dic)
+            {
+                if (item.Value == 1)
+                    return item.Key;
+            }
+            return -1;
+        }
+
+        public int MaxDepth(TreeNode root)
+        {
+            return findDeep(root);
+        }
+
+        public int findDeep(TreeNode root)
+        {
+            if(root==null)
+                return 0;
+            // if (root.left != null && root.left.val != null)
+            int leftDeep = findDeep(root.left);
+            // if (root.right != null && root.left.val != null)
+            int rightDeep = findDeep(root.right);
+            if (leftDeep > rightDeep)
+                return leftDeep+1;
+            else
+                return rightDeep+1;
+        }
+
     }
 }
