@@ -10,6 +10,7 @@ namespace Algorithm
             int[] nums = new int[] { 2, 11, 11, 7 };
             int target = 9;
             var algorithmEasy = new AlgorithmEasy();
+            var algorithmMedium = new AlgorithmEasy();
             //sum of two numbers
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.TwoSum(nums, target)) + "]");
             // nums = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
@@ -47,16 +48,14 @@ namespace Algorithm
             // TreeNode rightRight = new TreeNode();
             // rightLeft.val = 7;
             // right.right = rightRight;
+            // TreeNode root = new TreeNode();
+            // root.val = 1;
+            // TreeNode right = new TreeNode();
+            // right.val = 20;
+            // root.right = right;
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxDepth(root) + "]"));
 
 
-            TreeNode root = new TreeNode();
-            root.val = 1;
-
-            TreeNode right = new TreeNode();
-            right.val = 20;
-            root.right = right;
-
-            Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxDepth(root) + "]"));
         }
     }
 }
