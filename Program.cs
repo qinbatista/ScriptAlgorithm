@@ -55,6 +55,8 @@ namespace Algorithm
             // root.right = right;
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxDepth(root) + "]"));
 
+            Console.WriteLine("[" + string.Join(",", algorithmEasy.titleToNumber("AB") + "]"));
+
 
         }
     }

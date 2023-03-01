@@ -184,17 +184,24 @@ namespace Algorithm
 
         public int findDeep(TreeNode root)
         {
-            if(root==null)
+            if (root == null)
                 return 0;
             // if (root.left != null && root.left.val != null)
             int leftDeep = findDeep(root.left);
             // if (root.right != null && root.left.val != null)
             int rightDeep = findDeep(root.right);
             if (leftDeep > rightDeep)
-                return leftDeep+1;
+                return leftDeep + 1;
             else
-                return rightDeep+1;
+                return rightDeep + 1;
         }
 
+        public int titleToNumber(string columnTitle)
+        {
+            int sum = 0;
+            for (int i = 0; i < columnTitle.Length; i++)
+                sum = sum + (int)Math.Pow(26, (columnTitle.Length - i - 1)) * (columnTitle[i] - 64);
+            return sum;
+        }
     }
 }
