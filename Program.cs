@@ -7,10 +7,8 @@ namespace Algorithm
     {
         static void Main(string[] args)
         {
-            int[] nums = new int[] { 2, 11, 11, 7 };
-            int target = 9;
             var algorithmEasy = new AlgorithmEasy();
-            var algorithmMedium = new AlgorithmEasy();
+            var algorithmMedium = new AlgorithmMedium();
             //sum of two numbers
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.TwoSum(nums, target)) + "]");
             // nums = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
@@ -54,7 +52,9 @@ namespace Algorithm
             // right.val = 20;
             // root.right = right;
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxDepth(root) + "]"));
+            ListNode newList = new ListNode();
 
+            algorithmMedium.ReverseList(newList);
 
         }
     }
