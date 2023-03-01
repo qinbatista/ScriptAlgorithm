@@ -203,5 +203,68 @@ namespace Algorithm
                 sum = sum + (int)Math.Pow(26, (columnTitle.Length - i - 1)) * (columnTitle[i] - 64);
             return sum;
         }
+
+        public int MajorityElement(int[] nums)
+        {
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            int max = 0;
+            int value = -1;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!dic.ContainsKey(nums[i]))
+                {
+                    dic.Add(nums[i], 1);
+                }
+                else
+                {
+                    dic[nums[i]] = dic[nums[i]] + 1;
+                }
+                if (dic[nums[i]] > max)
+                {
+                    max = dic[nums[i]];
+                    value = nums[i];
+                }
+            }
+            return value;
+        }
+
+        public int RomanToInt(string s)
+        {
+            if (s == null || s == string.Empty)
+                return 0;
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            int result = 0;
+            dict.Add("I", 1);
+            dict.Add("V", 5);
+            dict.Add("X", 10);
+            dict.Add("L", 50);
+            dict.Add("C", 100);
+            dict.Add("D", 500);
+            dict.Add("M", 1000);
+            string current = "";
+            string next = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                current = "";
+                next = "";
+                current = s[i].ToString();
+                if (i + 1 < s.Length)
+                    next = s[i + 1].ToString();
+                if (next != "" && dict[current] < dict[next])
+                {
+                    result = result - dict[current];
+                }
+                else
+                {
+                    result = result + dict[current];
+                }
+            }
+            return result;
+        }
+
+        public void DeleteNode(ListNode node)
+        {
+            string aa = "";
+        }
     }
 }

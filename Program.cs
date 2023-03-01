@@ -55,7 +55,11 @@ namespace Algorithm
             // root.right = right;
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxDepth(root) + "]"));
 
-            Console.WriteLine("[" + string.Join(",", algorithmEasy.titleToNumber("AB") + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.titleToNumber("AB") + "]"));
+            // int[] numbers = new int[] {3,2,3};
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.MajorityElement(numbers) + "]"));
+
+            Console.WriteLine("[" + string.Join(",", algorithmEasy.RomanToInt("III") + "]"));
 
 
         }
