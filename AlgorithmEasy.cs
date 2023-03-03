@@ -362,10 +362,42 @@ namespace Algorithm
             }
             for (int i = 0; i <= nums.Length; i++)
             {
-                if(!dic.ContainsKey(i))
+                if (!dic.ContainsKey(i))
                     return i;
             }
             return -1;
+        }
+
+        public int[] Intersect(int[] nums1, int[] nums2)
+        {
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            for (int i = 0; i < nums1.Length; i++)
+            {
+                if (!dic.ContainsKey(nums1[i]))
+                {
+                    dic.Add(nums1[i], 1);
+                }
+                else
+                {
+                    dic[nums1[i]] = dic[nums1[i]] + 1;
+                }
+            }
+
+            // int[] value = new int[needed_length];
+            List<int> value = new List<int>();
+            for (int i = 0; i < nums2.Length; i++)
+            {
+                if (dic.ContainsKey(nums2[i]))
+                {
+                    value.Add(nums2[i]);
+                    dic[nums2[i]] = dic[nums2[i]] - 1;
+                    if (dic[nums2[i]] == 0)
+                    {
+                        dic.Remove(nums2[i]);
+                    }
+                }
+            }
+            return value.ToArray();
         }
     }
 }
