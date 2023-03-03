@@ -59,9 +59,14 @@ namespace Algorithm
             // int[] numbers = new int[] {3,2,3};
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MajorityElement(numbers) + "]"));
 
-            Console.WriteLine("[" + string.Join(",", algorithmEasy.RomanToInt("III") + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.RomanToInt("III") + "]"));
 
-
+            // int[] numbers = new int[] {7,1,5,3,6,4};
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxProfit(numbers) + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.IsAnagram("anagram","nagaram") + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.FirstUniqChar("aabb") + "]"));
+            int[] numbers = new int[] {0,1};
+            Console.WriteLine("[" + string.Join(",", algorithmEasy.MissingNumber(numbers) + "]"));
         }
     }
 }

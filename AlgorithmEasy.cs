@@ -83,13 +83,9 @@ namespace Algorithm
             for (int i = 0; i < nums.Length; i++)
             {
                 if (table.ContainsKey(nums[i]))
-                {
                     return true;
-                }
                 else
-                {
                     table.Add(nums[i], true);
-                }
             }
             return false;
         }
@@ -264,7 +260,112 @@ namespace Algorithm
 
         public void DeleteNode(ListNode node)
         {
-            string aa = "";
+            node.val = node.next.val;
+            node.next = node.next.next;
+        }
+
+        public int MaxProfit(int[] prices)
+        {
+            int yesterday = int.MaxValue;
+            int sum = 0;
+            for (int i = 0; i < prices.Length; i++)
+            {
+                if (yesterday < prices[i])
+                    sum = sum + prices[i] - yesterday;
+                yesterday = prices[i];
+            }
+            return sum;
+        }
+
+        public bool IsAnagram(string s, string t)
+        {
+            Dictionary<char, int> dic_s = new Dictionary<char, int>();
+            Dictionary<char, int> dic_t = new Dictionary<char, int>();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!dic_s.ContainsKey(s[i]))
+                    dic_s.Add(s[i], 1);
+                else
+                    dic_s[s[i]] = dic_s[s[i]] + 1;
+            }
+            for (int i = 0; i < t.Length; i++)
+            {
+                if (!dic_t.ContainsKey(t[i]))
+                    dic_t.Add(t[i], 1);
+                else
+                    dic_t[t[i]] = dic_t[t[i]] + 1;
+            }
+            foreach (KeyValuePair<char, int> s_value in dic_s)
+            {
+                if (!dic_t.ContainsKey(s_value.Key))
+                    return false;
+                if (dic_t[s_value.Key] != s_value.Value)
+                    return false;
+            }
+            foreach (KeyValuePair<char, int> t_value in dic_t)
+            {
+                if (!dic_s.ContainsKey(t_value.Key))
+                    return false;
+                if (dic_s[t_value.Key] != t_value.Value)
+                    return false;
+            }
+            return true;
+        }
+
+        public int FirstUniqChar(string s)
+        {
+            Dictionary<char, int> dic = new Dictionary<char, int>();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!dic.ContainsKey(s[i]))
+                {
+                    dic.Add(s[i], i);
+                }
+                else
+                {
+                    dic[s[i]] = -1;
+                }
+            }
+            foreach (KeyValuePair<char, int> item in dic)
+            {
+                if (item.Value != -1)
+                    return item.Value;
+            }
+            return -1;
+        }
+
+        public TreeNode SortedArrayToBST(int[] nums)
+        {
+            return BuildTree(nums, 0, nums.Length - 1);
+        }
+
+        private TreeNode BuildTree(int[] nums, int i, int j)
+        {
+            if (j < i)
+                return null;
+            int mid = j + (i - j) / 2;
+            TreeNode node = new TreeNode(nums[mid]);
+            node.left = BuildTree(nums, i, mid - 1);
+            node.right = BuildTree(nums, mid + 1, j);
+            return node;
+        }
+
+        public int MissingNumber(int[] nums)
+        {
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!dic.ContainsKey(nums[i]))
+                {
+                    dic.Add(nums[i], 1);
+                }
+            }
+            for (int i = 0; i <= nums.Length; i++)
+            {
+                if(!dic.ContainsKey(i))
+                    return i;
+            }
+            return -1;
         }
     }
 }
