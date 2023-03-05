@@ -71,9 +71,21 @@ namespace Algorithm
             // int[] numbers = new int[] {0,1};
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MissingNumber(numbers) + "]"));
 
-            int[] numbers1 = new int[] {1,2,2,1};
-            int[] numbers2 = new int[] {2,2};
-            Console.WriteLine("[" + string.Join(",", algorithmEasy.Intersect(numbers1,numbers2) + "]"));
+            // int[] numbers1 = new int[] {1,2,2,1};
+            // int[] numbers2 = new int[] {2,2};
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.Intersect(numbers1,numbers2) + "]"));
+            // int[] numbers = new int[] {7,1,5,3,6,4};
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxProfit2(numbers) + "]"));
+            ListNode listNode1 = new ListNode();
+            listNode1.val  = 1;
+            listNode1.AddNode(2);
+            listNode1.AddNode(4);
+
+            ListNode listNode2 = new ListNode();
+            listNode2.val  = 1;
+            listNode2.AddNode(3);
+            listNode2.AddNode(4);
+            Console.WriteLine("[" + string.Join(",", algorithmEasy.MergeTwoLists(listNode1,listNode2) + "]"));
         }
     }
 }

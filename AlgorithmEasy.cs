@@ -399,5 +399,69 @@ namespace Algorithm
             }
             return value.ToArray();
         }
+
+        public int MaxProfit2(int[] prices)
+        {
+            if (prices.Length == 1)
+                return 0;
+            int leftPrice = 0;
+            int rightPrice = 0;
+            int leftPoint = 0;
+            int rightPoint = 1;
+            int maxProfit = 0;
+            for (int i = 0; i < prices.Length; i++)
+            {
+                leftPrice = prices[leftPoint];
+                rightPrice = prices[rightPoint];
+                int profit = rightPrice - leftPrice;
+                if (profit > 0)
+                {
+                    maxProfit = Math.Max(profit, maxProfit);
+                    rightPoint = rightPoint + 1;
+                }
+                else
+                {
+                    leftPoint = i + 1;
+                    rightPoint = leftPoint + 1;
+                }
+                if (rightPoint >= prices.Length)
+                    break;
+            }
+            return maxProfit;
+        }
+
+        public ListNode MergeTwoLists(ListNode list1, ListNode list2)
+        {
+            ListNode list1Index = list1;
+            ListNode list2Index = list2;
+            ListNode newNode = new ListNode();
+            ListNode tailNode = new ListNode();
+            newNode.next = tailNode;
+            while (list1Index != null || list2Index != null)
+            {
+                if (list2Index == null)
+                {
+                    tailNode.next = list1Index;
+                    return newNode.next.next;
+                }
+                if (list1Index == null)
+                {
+                    tailNode.next = list2Index;
+                    return newNode.next.next;
+                }
+                if (list1Index.val < list2Index.val)
+                {
+                    tailNode.next = list1Index;
+                    list1Index = list1Index.next;
+                }
+                else
+                {
+                    tailNode.next = list2Index;
+                    list2Index = list2Index.next;
+                }
+                tailNode = tailNode.next;
+            }
+            return newNode.next.next;
+        }
     }
 }
