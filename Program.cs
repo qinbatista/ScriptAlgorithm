@@ -76,16 +76,23 @@ namespace Algorithm
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.Intersect(numbers1,numbers2) + "]"));
             // int[] numbers = new int[] {7,1,5,3,6,4};
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MaxProfit2(numbers) + "]"));
-            ListNode listNode1 = new ListNode();
-            listNode1.val  = 1;
-            listNode1.AddNode(2);
-            listNode1.AddNode(4);
+            // ListNode listNode1 = new ListNode();
+            // listNode1.val  = 1;
+            // listNode1.AddNode(2);
+            // listNode1.AddNode(4);
 
-            ListNode listNode2 = new ListNode();
-            listNode2.val  = 1;
-            listNode2.AddNode(3);
-            listNode2.AddNode(4);
-            Console.WriteLine("[" + string.Join(",", algorithmEasy.MergeTwoLists(listNode1,listNode2) + "]"));
+            // ListNode listNode2 = new ListNode();
+            // listNode2.val  = 1;
+            // listNode2.AddNode(3);
+            // listNode2.AddNode(4);
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.MergeTwoLists(listNode1,listNode2) + "]"));
+            Container container = new Container();
+
+            // while(container.MoveForward())
+            // {
+
+            // }
+            Console.WriteLine("Done"+container.ToString());
         }
     }
 }
