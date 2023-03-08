@@ -463,5 +463,68 @@ namespace Algorithm
             }
             return newNode.next.next;
         }
+
+        public bool IsHappy(int n)
+        {
+            List<int> digitList = new List<int>();
+            int sum = 0;
+            while (sum != 1)
+            {
+                sum = 0;
+                digitList.Clear();
+                while (n != 0)
+                {
+                    int lastDigit = n % 10;
+                    n = n / 10;
+                    digitList.Add(lastDigit);
+                }
+                foreach (int value in digitList)
+                {
+                    sum = sum + value * value;
+                }
+                if (sum == 1)
+                    return true;
+                if (sum < 7)
+                    return false;
+                n = sum;
+            }
+            return false;
+        }
+
+        public IList<IList<int>> Generate(int numRows)
+        {
+            IList<IList<int>> theList = new List<IList<int>>();
+            int[] num = new int[numRows];
+            for (int i = 1; i < numRows; i++)
+            {
+
+                if (i == 0||i == 1)
+                    num[i] = 1;
+                int number = num[i/2-1]
+            }
+            return theList;
+        }
     }
 }
+1
+1 1
+1 2 1
+1 3 3  1
+1 4 6  4  1
+1 5 10 10 5 1
+1 6 15 20 15 6 1
+1 7 21 35 35 21 7 1
+1 8 28 56 70
+
+0
+  +1
+  +1  +2
+  +1  +3
+  +1  +3+3         +3
+  +1  +3+3+4       +3+3
+  +1  +3+3+4+5     +3+3+4
+  +1  +3+3+4+5+6   +3+3+4+5
+                   +3+3+4+5+6
+
+
+
