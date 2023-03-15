@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace Algorithm
 {
@@ -34,20 +37,20 @@ namespace Algorithm
             // int[] nums_singleNumber = new int[] { 4,1,2,1,2 };
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.SingleNumber(nums_singleNumber) + "]"));
             //Maximum Depth of Binary Tree
-            // TreeNode root = new TreeNode();
-            // root.val = 3;
-            // TreeNode left = new TreeNode();
-            // left.val = 9;
-            // root.left = left;
-            // TreeNode right = new TreeNode();
-            // left.val = 20;
-            // root.right = right;
-            // TreeNode rightLeft = new TreeNode();
-            // rightLeft.val = 15;
-            // right.left = rightLeft;
-            // TreeNode rightRight = new TreeNode();
-            // rightLeft.val = 7;
-            // right.right = rightRight;
+            TreeNode root = new TreeNode();
+            root.val = 3;
+            TreeNode left = new TreeNode();
+            left.val = 9;
+            root.left = left;
+            TreeNode right = new TreeNode();
+            left.val = 20;
+            root.right = right;
+            TreeNode rightLeft = new TreeNode();
+            rightLeft.val = 15;
+            right.left = rightLeft;
+            TreeNode rightRight = new TreeNode();
+            rightLeft.val = 7;
+            right.right = rightRight;
             // TreeNode root = new TreeNode();
             // root.val = 1;
             // TreeNode right = new TreeNode();
@@ -86,13 +89,14 @@ namespace Algorithm
             // listNode2.AddNode(3);
             // listNode2.AddNode(4);
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.MergeTwoLists(listNode1,listNode2) + "]"));
-            Container container = new Container();
 
-            // while(container.MoveForward())
-            // {
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.climbStairs(2) + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.IsSymmetric(root) + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.IsPowerOfThree(27) + "]"));
+            int[] numbers1 = new int[] {2,7,9,3,1};
+            Console.WriteLine("[" + string.Join(",", algorithmEasy.Rob(numbers1) + "]"));
 
-            // }
-            Console.WriteLine("Done"+container.ToString());
+
         }
     }
 }

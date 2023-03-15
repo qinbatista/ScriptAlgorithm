@@ -494,37 +494,95 @@ namespace Algorithm
         public IList<IList<int>> Generate(int numRows)
         {
             IList<IList<int>> theList = new List<IList<int>>();
-            int[] num = new int[numRows];
-            for (int i = 1; i < numRows; i++)
-            {
+            // int[] num = new int[numRows];
+            // for (int i = 1; i < numRows; i++)
+            // {
 
-                if (i == 0||i == 1)
-                    num[i] = 1;
-                int number = num[i/2-1]
-            }
+            //     if (i == 0||i == 1)
+            //         num[i] = 1;
+            //     int number = num[i/2-1]
+            // }
             return theList;
+        }
+        public int climbStairs(int n)
+        {
+            if (n == 2)
+                return n;
+            int[] dp = new int[n + 1];
+            dp[1] = 1;
+            dp[2] = 2;
+            for (int i = 3; i <= n; i++)
+            {
+                dp[i] = dp[i - 1] + dp[i - 2];
+            }
+            return dp[n];
+
+            // if (n <= 2)
+            //     return n;
+            // int[] res = new int[n + 1];
+            // res[1] = 1;
+            // res[2] = 2;
+
+            // for (int i = 3; i <= n; i++)
+            //     res[i] = res[i - 1] + res[i - 2];
+
+            // return res[n];
+        }
+        public bool IsSymmetric(TreeNode root)
+        {
+            if (root == null) return true;
+            return DFS(root.left, root.right);
+        }
+        bool DFS(TreeNode left, TreeNode right)
+        {
+            if (left == null && right == null) return true;
+            if (left == null || right == null) return false;
+            if (left.val == right.val)
+                return DFS(left.left, right.right) && DFS(left.right, right.left);
+            return false;
+        }
+
+        public bool IsPowerOfThree(int n)
+        {
+            while (n >= 3)
+            {
+                if (n % 3 == 0)
+                    n = n / 3;
+                else
+                    return false;
+            }
+            if (n == 1)
+                return true;
+            else
+                return false;
+        }
+        public int HammingWeight(uint n)
+        {
+            int count = 0;
+            while (n != 0)
+            {
+                if ((n & (~n + 1)) == 1)
+                    count++;
+                n = n >> 1;
+            }
+            return count;
+        }
+        public int Rob(int[] nums)
+        {
+            if (nums.Length == 0) return 0;
+            if (nums.Length == 1) return nums[0];
+            if (nums.Length == 2) return Math.Max(nums[0], nums[1]);
+
+            List<int> maxPrice = new List<int>();
+            maxPrice.Add(nums[0]);
+            maxPrice.Add(Math.Max(nums[0], nums[1]));
+            for (int i = 2; i < nums.Length; i++)
+            {
+                maxPrice.Add(Math.Max(maxPrice[i - 2] + nums[i], maxPrice[i - 1]));
+            }
+            return maxPrice[maxPrice.Count-1];
         }
     }
 }
-1
-1 1
-1 2 1
-1 3 3  1
-1 4 6  4  1
-1 5 10 10 5 1
-1 6 15 20 15 6 1
-1 7 21 35 35 21 7 1
-1 8 28 56 70
-
-0
-  +1
-  +1  +2
-  +1  +3
-  +1  +3+3         +3
-  +1  +3+3+4       +3+3
-  +1  +3+3+4+5     +3+3+4
-  +1  +3+3+4+5+6   +3+3+4+5
-                   +3+3+4+5+6
-
 
 
