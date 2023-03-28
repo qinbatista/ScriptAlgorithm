@@ -93,8 +93,14 @@ namespace Algorithm
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.climbStairs(2) + "]"));
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.IsSymmetric(root) + "]"));
             // Console.WriteLine("[" + string.Join(",", algorithmEasy.IsPowerOfThree(27) + "]"));
-            int[] numbers1 = new int[] {2,7,9,3,1};
-            Console.WriteLine("[" + string.Join(",", algorithmEasy.Rob(numbers1) + "]"));
+            // int[] numbers1 = new int[] {2,7,9,3,1};
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.Rob(numbers1) + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.IsPalindrome("Marge, let's \"[went].\" I await {news} telegram.") + "]"));
+            // Console.WriteLine("[" + string.Join(",", algorithmEasy.IsValid("(])") + "]"));
+            int[] numbers1 = new int[] {-1,0,3,5,9,12};
+            Console.WriteLine("[" + string.Join(",", algorithmEasy.Search(numbers1,9) + "]"));
+
+
 
 
         }

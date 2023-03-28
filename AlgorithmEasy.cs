@@ -580,7 +580,86 @@ namespace Algorithm
             {
                 maxPrice.Add(Math.Max(maxPrice[i - 2] + nums[i], maxPrice[i - 1]));
             }
-            return maxPrice[maxPrice.Count-1];
+            return maxPrice[maxPrice.Count - 1];
+        }
+        public bool IsPalindrome(string s)
+        {
+            s = s.ToLower();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] < 'a' || s[i] > 'z')
+                {
+                    if (s[i] < '0' || s[i] > '9')
+                    {
+                        Console.WriteLine("replaced:" + s[i].ToString());
+                        s = s.Replace(s[i].ToString(), "");
+                        Console.WriteLine("s =" + s);
+                        i--;
+                    }
+                }
+            }
+            if (s.Length == 1)
+                return true;
+            if (s.Length == 2 && s[0] != s[1])
+                return false;
+
+            for (int i = 0; i < s.Length / 2; i++)
+            {
+                if (s[i] != s[s.Length - 1 - i])
+                    return false;
+            }
+            return true;
+        }
+        public bool IsValid(string s)
+        {
+            Dictionary<char, char> pair = new Dictionary<char, char>();
+            pair.Add('(', ')');
+            pair.Add('[', ']');
+            pair.Add('{', '}');
+            Stack<char> stack = new Stack<char>();
+            if (s.Length == 0) return false;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ')' || s[i] == ']' || s[i] == '}')
+                {
+                    if (stack.Count > 0 && pair[stack.Peek()] == s[i])
+                        stack.Pop();
+                    else
+                        return false;
+                }
+                else
+                    stack.Push(s[i]);
+            }
+            return stack.Count == 0;
+        }
+        public int Search(int[] nums, int target)
+        {
+            int left = 0;
+            int right = nums.Length - 1;
+            while (left <= right)
+            {
+                int mid = (right - left) / 2 + left;
+                if (nums[mid] == target)
+                    return mid;
+                if (nums[mid] > target)
+                    right = mid - 1;
+                if (nums[mid] < target)
+                    left = mid + 1;
+            }
+            return -1;
+        }
+        TreeNode invertTree(TreeNode root)
+        {
+            if (root == null)
+                return null;
+            TreeNode temp = root.right;
+            root.right = root.left;
+            root.left = temp;
+            if (root.left != null)
+                InvertTree(root.left);
+            if (root.right != null)
+                InvertTree(root.right);
+            return root;
         }
     }
 }
